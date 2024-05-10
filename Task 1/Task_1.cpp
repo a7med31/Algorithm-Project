@@ -3,7 +3,7 @@
 #include <ctime>
 #include <cmath>
 
-#define N 4
+#define N 7
 
 using namespace std;
 
@@ -105,7 +105,6 @@ void rotateAndPlace(int** arr, int size, int firstX, int firstY, int* edge, int*
             }
         }
     }
-    // printFullGrid(arr);
 }
 void placeTormino(int** arr, int size, int firstX, int firstY, int* originEdge, int**** dp, bool lastTormino = false, int color=-1){
     // lastTormino is a flag to indicate that this is the last tormino to be placed and is used only in the 2x2 case
@@ -222,7 +221,7 @@ void tile(int** arr, int size, int firstX, int firstY, int****dp){
     // We need to find the missing square
     int* missing = findMissing(arr, size, firstX, firstY);
 
-    // If there is no missing square
+    // If there is missing square
     if(missing[0] > -1){
     //The grid can be broken down into a tormino and a square with the missing square
         if(missing[0]-firstX < size/2){
@@ -294,11 +293,11 @@ int main(){
     }
 
     tile(arr, x, 0, 0, dp);
-    // for(int i = 0; i < x; i++){
-    //     for(int j = 0; j < x; j++){
-    //         cout << arr[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-    // return 0;
+    for(int i = 0; i < x; i++){
+        for(int j = 0; j < x; j++){
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }                                                            
